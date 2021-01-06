@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - strace -p $(pgrep agent) -e trace=write > /tmp/strace.log &
+      - strace -p $(pgrep agent) -e trace=write -s 1000 &
       - codebuild-breakpoint
   build:
     commands:
@@ -20,8 +20,6 @@ phases:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - codebuild-breakpoint
-      - wc -l /tmp/strace.log
-      - cat /tmp/strace.log
 artifacts:
   files:
     - myartifact.txt
