@@ -4,9 +4,11 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
+      - yum install -y strace
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - strace -p $(pgrep agent) -e write=all &
       - codebuild-breakpoint
   build:
     commands:
