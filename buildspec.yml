@@ -7,6 +7,7 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - codebuild-breakpoint
   build:
     commands:
       - echo Entered the build phase...
