@@ -5,6 +5,7 @@ phases:
     commands:
       - echo Entered the install phase...
       - yum install -y strace
+      - env
   pre_build:
     commands:
       - echo Entered the pre_build phase...
