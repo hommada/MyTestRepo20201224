@@ -5,6 +5,8 @@ phases:
     commands:
       - echo Entered the install phase...
       - yum install -y strace
+      - curl
+      - yum install -y curl
       - env
   pre_build:
     commands:
